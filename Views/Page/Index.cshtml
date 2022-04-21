@@ -1,0 +1,191 @@
+@model IEnumerable<MvcMovie.Models.Movie>
+@{
+  ViewData["Title"] = "Page Page";
+}
+
+@* <table  class="table table-striped">
+  <thead >
+    <tr>
+      <th scope="col"> Title</th>
+      <th scope="col"> Date</th>
+      <th scope="col">Price</th>
+      <th scope="col">Gren</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var item in Model)
+    {
+      <tr>
+        <td>
+          @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.ReleaseDate)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.Genre)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+          <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+          <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+          <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+          </td>
+      </tr>
+    }
+
+
+  </tbody>
+</table> *@
+
+@* <table class="table" id="tab">
+  <thead class="thead-dark">
+    <tr>
+      <th>No</th>
+      <th>emp_code</th>
+      <th>emp_name</th>
+      <th>status</th>
+    </tr>
+  </thead>
+  <tbody>
+   
+  </tbody>
+  
+</table> *@
+
+<table id="tabtable" class="table table-borderless">
+  <thead >
+    <tr>
+      <th>emp_code</th>
+      <th>emp_name</th>
+      <th>status</th>
+    </tr>
+  </thead>
+  
+</table>
+
+
+
+
+<h2>This is a heading</h2>
+<p id="app">This is a paragraph.</p>
+<p id="showcss">NOWWW</p>
+<i class="bi bi-emoji-angry"></i>
+<button id="Btn1" type="button" class="btn btn-primary">Primary</button>
+<button id="Btn2" type="button" class="btn btn-info">append</button>
+<button id="Btn3" type="button" class="btn btn-warning">css</button>
+
+<input type="text" id="emp_name">
+
+
+
+@section Styles{
+<style>
+  .bigfont {
+    font-size: 50px;
+  }
+</style>
+}
+
+@section scripts{
+<script>
+
+
+  var val_name
+  var Data_Person
+  $("#Btn1").click(function (e) {
+    getval2()
+  });
+
+  $("#Btn2").click(function (e) {
+    $("#app").append("Appended text");
+  });
+
+  $("#Btn3").click(function (e) {
+    $("#showcss").addClass("bigfont");
+
+  });
+
+  @* $("#emp_name").on("input", function() {
+      alert($(this).val());
+      }); *@
+
+    function getval() {
+      val_name = $("#emp_name").val()
+      if (val_name === "now") {
+        alert("HI")
+      } else {
+        alert("NO")
+      }
+    }
+
+  function getval2() {
+    val_name = $("#emp_name").val()
+    $.ajax({
+      type: "POST",
+      url: "@Url.Action("CreateNew")",
+      data: { body: "XXXXX" },
+      success: function (response) {
+        alert(response);
+      }
+    });
+  }
+
+
+
+function test2(){
+  $('#tabtable').DataTable( {
+      ajax:{
+         type: "GET",
+      url: "http://cptsvs531:5000/apioverareadev/Home/Get_Person",
+      dataType: "json",
+     dataSrc: function (res) {
+    return res
+}
+      }
+     
+    ,
+    columns: [
+        { data: 'emp_code' },
+        { data: 'emp_name' },
+        { data: 'status' },
+    ]
+} );
+}
+
+$('#tab2').DataTable( );
+
+  function test() {
+    $.ajax({
+      type: "GET",
+      url: "http://cptsvs531:5000/apioverareadev/Home/Get_Person",
+      dataType: "json",
+      success: function (response) {
+
+        Data_Person = response
+        let showtable = ""
+        Data_Person.forEach((item,index)=>{
+          showtable += `
+          <tr>
+            <td>${index+1}</td>
+            <td>${item.emp_code}</td>
+            <td>${item.emp_name}</td>
+            <td>${item.status}</td> 
+          </tr>
+          `;
+
+        })
+        $("#tab tbody").html(showtable)
+      },
+      error: function (error) {
+        console.log('Error: ' + error);
+      }
+    });
+  }
+
+  test2()
+
+</script>
+}
