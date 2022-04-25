@@ -15639,8 +15639,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\New folder\\MvcMovie\\Views\\Dumble\\Delete.cshtml",
+      "TargetPath": "Views\\Dumble\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\New folder\\MvcMovie\\Views\\Movies\\Delete.cshtml",
       "TargetPath": "Views\\Movies\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\New folder\\MvcMovie\\Views\\Dumble\\Index.cshtml",
+      "TargetPath": "Views\\Dumble\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15669,6 +15679,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\New folder\\MvcMovie\\Views\\Dumble\\Insert.cshtml",
+      "TargetPath": "Views\\Dumble\\Insert.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\New folder\\MvcMovie\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
@@ -15676,6 +15691,11 @@
     {
       "FilePath": "d:\\New folder\\MvcMovie\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\New folder\\MvcMovie\\Views\\Dumble\\Edit.cshtml",
+      "TargetPath": "Views\\Dumble\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {

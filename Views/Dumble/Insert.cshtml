@@ -1,0 +1,83 @@
+@{
+    Layout=null;
+}
+
+@* <form id="frominsert" action="/Dumble/Insert" method="post" data-ajax="true" data-ajax-method="post" data-ajax-complete="completed"> *@
+    @* <button >vvv</button> *@
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2">
+               
+            </div>
+            <div class="col-sm-8">
+                <div class="form-group">
+                    <label for="name">Product Name</label>
+                    <input autocomplete="off" type="text" class="form-control" id="name" name="pd_name">
+                </div>
+                <div class="form-group">
+                    <label for="price">Product Price</label>
+                    <input autocomplete="off" type="text" class="form-control" id="price" name="pd_price">
+                </div>
+                <div class="form-group">
+                    <label for="supplier">Supplier</label>
+                    <input autocomplete="off" type="text" class="form-control" id="supplier" name="pd_supplier">
+                </div>
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input autocomplete="off" type="text" class="form-control" id="date" name="pd_date">
+                </div>
+                <div class="form-group">
+                    <label for="color">Color</label>
+                    <input autocomplete="off" type="text" class="form-control" id="color" name="pd_color">
+                </div>
+            </div>
+            <div class="col-sm-2">
+
+            </div>
+        </div>
+    </div>
+
+    @* <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+
+            </div>
+            <div class="col-sm-4">
+                <button type="submit" class="btn btn-info">Submit</button>
+            </div>
+            <div class="col-sm-4">
+
+            </div>
+
+        </div>
+    </div> *@
+
+@* </form> *@
+@* @section scripts{
+<script>
+    $("#swal").click(function (e) {
+        al()
+
+    });
+    function al() {
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
+
+    completed = function (xhr) {
+        console.log(xhr)
+        if(xhr.responseJSON=="ok")
+            al();
+            $("#frominsert")[0].reset();
+            window.location='@Url.Action("Index","Dumble")';
+        };
+
+</script>
+} *@
+
+

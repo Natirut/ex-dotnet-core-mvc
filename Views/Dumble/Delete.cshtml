@@ -1,0 +1,19 @@
+@model MvcMovie.Models.Dumble
+@{
+    Layout=null;
+}
+
+<span>Are your sure to delete @Model.pd_name</span>
+@* <span>Name : @Model.pd_name</span><br>
+<span>Price : @Model.pd_price</span><br>
+<span>Supplier : @Model.pd_supplier</span><br>
+<span>Date : @Model.pd_date</span><br>
+<span>Color : @Model.pd_color</span><br><br> *@
+
+  <form asp-action="Delete">
+        <input type="hidden" asp-for="id" />
+        @* <button type="submit" class="btn btn-danger">Confirm</button>
+        <a asp-action="Index">Back to List</a> *@
+    </form>
+
+

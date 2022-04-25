@@ -1,0 +1,198 @@
+@model IEnumerable<MvcMovie.Models.Dumble>
+
+<h1>List Product</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            @* <button type="button" onclick="location.href='@Url.Action("Insert", "Dumble")'" class="btn
+                btn-success">Insert</button> *@
+            <a class="btn btn-info" href="" data-ajax="true" data-ajax-url="@Url.Action("Insert", "Dumble")"
+                data-ajax-update="#body_insert" onclick="$('#modal_insert').modal('show')">Insert</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <table id="tab2" class="table table-borderless">
+        <thead>
+            <tr>
+                <th>
+                    Product Name
+                </th>
+                <th>
+                    Product Price
+                </th>
+                <th>
+                    Supplier
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Color
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pd_name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pd_price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pd_supplier)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pd_date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pd_color)
+                    </td>
+                    <td>
+                        @* <button type="button" onclick="location.href='@Url.Action("Edit", "Dumble",new{item.id})'"
+                        class="btn btn-warning">Edit</button>
+                        <button type="button" onclick="location.href='@Url.Action("Delete", "Dumble",new{item.id})'"
+                        class="btn btn-danger">Delete</button> *@
+                         <a class="btn btn-warning" href="" data-ajax="true" data-ajax-url="@Url.Action("Edit", "Dumble",new{item.id})"
+                data-ajax-update="#body_edit" onclick="$('#modal_edit').modal('show')">Edit</a>
+                   
+                    <a class="btn btn-danger" href="" data-ajax="true" data-ajax-url="@Url.Action("Delete", "Dumble",new{item.id})"
+                data-ajax-update="#body_delete" onclick="$('#modal_delete').modal('show')">Delete</a>
+
+  @* <form  data-ajax-complete="completed" class="d-inline" action="@Url.Action("Delete", "Dumble",new{item.id})"  method="post" data-ajax="true" data-ajax-method="post" data-ajax-confirm="Are you sure?">
+        <input type="hidden" name="id" value="@item.id" />
+        <button type="submit" class="btn btn-danger">Confirm</button>
+    </form> *@
+                   
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+    <input  id="datepicker" type="text" class="form-control" value="@DateTime.Now.ToString("dd/MM/yyyy")" ></input>
+
+
+<form id="frominsert" action="/Dumble/Insert" method="post" data-ajax="true" data-ajax-method="post"
+    data-ajax-complete="completed">
+    <div id="modal_insert" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal_insert-title"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal_insert-title">Insert Product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="body_insert">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal" aria-label="Close">
+                        Close
+                    </button>
+                    @* <button onclick="testt()" >Test</button> *@
+                    <button type="submit" class="btn btn-info">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<form id="fromedit"  action="/Dumble/Edit" method="post" data-ajax="true" data-ajax-method="post"
+    data-ajax-complete="completed">
+    <div id="modal_edit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal_insert-title"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal_insert-title">Edit Product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="body_edit">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal" aria-label="Close">
+                        Close
+                    </button>
+                    <button type="submit" class="btn btn-info">Edit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<form id="fromdelete"  action="/Dumble/Delete" method="post" data-ajax="true" data-ajax-method="post"
+    data-ajax-complete="completed">
+    <div id="modal_delete" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal_insert-title"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal_insert-title">Delete Product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="body_delete">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal" aria-label="Close">
+                        Close
+                    </button>
+                    <button type="submit" class="btn btn-info">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section scripts{
+<script>
+    $('#tab2').DataTable();
+ $("#datepicker").datepicker({
+      dateFormat: 'dd/mm/yy',
+        changeMonth: true,
+        changeYear: true,
+        constrainInput: false
+ });
+
+    function al() {
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
+
+    completed = function (xhr) {
+        console.log(xhr)
+        if (xhr.responseJSON == "ok")
+            al();
+        @* $("#frominsert")[0].reset(); *@
+
+        setTimeout(() => {
+            window.location = '@Url.Action("Index","Dumble")';
+        }, "1000")
+
+
+    };
+
+</script>
+}

@@ -169,3 +169,7 @@ D:\New folder\MvcMovie\obj\Debug\net5.0\Razor\Views\Movies\Details.cshtml.g.cs
 D:\New folder\MvcMovie\obj\Debug\net5.0\Razor\Views\Movies\Edit.cshtml.g.cs
 D:\New folder\MvcMovie\obj\Debug\net5.0\Razor\Views\Movies\Index.cshtml.g.cs
 D:\New folder\MvcMovie\obj\Debug\net5.0\Razor\Views\Page\Index.cshtml.g.cs
+D:\New folder\MvcMovie\obj\Debug\net5.0\Razor\Views\Dumble\Index.cshtml.g.cs
+D:\New folder\MvcMovie\obj\Debug\net5.0\Razor\Views\Dumble\Insert.cshtml.g.cs
+D:\New folder\MvcMovie\obj\Debug\net5.0\Razor\Views\Dumble\Edit.cshtml.g.cs
+D:\New folder\MvcMovie\obj\Debug\net5.0\Razor\Views\Dumble\Delete.cshtml.g.cs
